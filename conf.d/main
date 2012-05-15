@@ -80,3 +80,13 @@ echo > $WEBROOT/sugarcrm.log
 chown root:root $WEBROOT/.htaccess
 chmod 640 $WEBROOT/config.php
 
+# setup cron
+CRON_SUGARCRM=/etc/cron.hourly/sugarcrm
+cat >$CRON_SUGARCRM<<EOF
+#!/bin/bash -e
+# Trigger sugarcrm cron
+
+su www-data -c "cd /var/www/sugarcrm; php -f cron.php > /dev/null 2>&1"
+EOF
+chmod +x $CRON_SUGARCRM
+
