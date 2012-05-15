@@ -27,3 +27,9 @@ chown www-data:www-data $WEBROOT/sugarcrm.log
 chown www-data:www-data $WEBROOT/install.log
 chown www-data:www-data $WEBROOT/.htaccess
 
+# php.ini tweaks
+PHPINI=/etc/php5/apache2/php.ini
+sed -i "s|^memory_limit.*|memory_limit = 256M|" $PHPINI
+sed -i "s|^variables_order.*|variables_order = \"EGPCS\"|" $PHPINI
+sed -i "s|^;date.timezone.*|date.timezone = \"UTC\"|" $PHPINI
+
