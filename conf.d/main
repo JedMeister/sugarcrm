@@ -60,6 +60,14 @@ $CURL $URL --data "default_user_name=admin&next=Finish"
 
 rm -f /tmp/cookie
 
+# workaround installer bug (broken add user password check)
+MYSQL_BATCH="mysql --user=root --password=$MYSQL_PASS --batch"
+
+$MYSQL_BATCH --execute "grant all privileges on $DB_NAME.* to $DB_USER@localhost identified by '$DB_PASS'; flush privileges;"
+
+sed -i "s|'db_user_name.*|'db_user_name' => '$DB_USER',|" $WEBROOT/config.php
+sed -i "s|'db_password.*|'db_password' => '$DB_PASS',|" $WEBROOT/config.php
+
 # stop services
 /etc/init.d/apache2 stop
 /etc/init.d/mysql stop
