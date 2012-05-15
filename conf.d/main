@@ -1,0 +1,18 @@
+#!/bin/sh -ex
+
+DB_NAME=sugarcrm
+DB_USER=sugarcrm
+DB_PASS=$(mcookie)
+
+ADMIN_NAME=admin
+ADMIN_PASS=turnkey
+
+SRC=/usr/local/src
+WEBROOT=/var/www/sugarcrm
+
+# unpack and configure
+unzip $SRC/SugarCE-*.zip -d $SRC
+rm $SRC/SugarCE-*.zip
+mv $SRC/SugarCE-* $WEBROOT
+chown -R root:root $WEBROOT
+
