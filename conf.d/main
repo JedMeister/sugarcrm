@@ -72,3 +72,11 @@ sed -i "s|'db_password.*|'db_password' => '$DB_PASS',|" $WEBROOT/config.php
 /etc/init.d/apache2 stop
 /etc/init.d/mysql stop
 
+# blank out logs
+echo > $WEBROOT/install.log
+echo > $WEBROOT/sugarcrm.log
+
+# tweak permissions
+chown root:root $WEBROOT/.htaccess
+chmod 640 $WEBROOT/config.php
+
