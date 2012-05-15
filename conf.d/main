@@ -16,3 +16,14 @@ rm $SRC/SugarCE-*.zip
 mv $SRC/SugarCE-* $WEBROOT
 chown -R root:root $WEBROOT
 
+touch $WEBROOT/install.log
+
+chown -R www-data:www-data $WEBROOT/cache
+chown -R www-data:www-data $WEBROOT/custom
+chown -R www-data:www-data $WEBROOT/modules
+chown -R www-data:www-data $WEBROOT/upload
+chown www-data:www-data $WEBROOT/config.php
+chown www-data:www-data $WEBROOT/sugarcrm.log
+chown www-data:www-data $WEBROOT/install.log
+chown www-data:www-data $WEBROOT/.htaccess
+
