@@ -24,7 +24,7 @@ turnkey-sugarcrm-12.0 (1) turnkey; urgency=low
 
   * Major component versions
 
-    sugarce         6.4.4 (upstream archive)
+    sugarce         6.5.2 (upstream archive)
     apache2         2.2.16-6+squeeze7
     mysql-server    5.1.63-0+squeeze1
     phpmyadmin      4:3.3.7-7
