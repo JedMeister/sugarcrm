@@ -5,7 +5,7 @@ dl() {
     cd $2; curl -L -f -O $PROXY $1; cd -
 }
 
-VERSION="1%20-%20SugarCRM%206.5.X/SugarCommunityEdition-6.5.X/SugarCE-6.5.16.zip"
+VERSION="1%20-%20SugarCRM%206.5.X/SugarCommunityEdition-6.5.X/SugarCE-6.5.20.zip"
 URL="http://sourceforge.net/projects/sugarcrm/files/$VERSION"
 
 dl $URL /usr/local/src
